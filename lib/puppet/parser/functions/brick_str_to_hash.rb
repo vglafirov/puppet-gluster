@@ -29,6 +29,7 @@ module Puppet::Parser::Functions
 		ENDHEREDOC
 
     result = []
+    bricks = args[0]
     bricks.each do |x|
       a = x.split(':')
       #assert a.length == 2	# TODO
