@@ -44,23 +44,6 @@ module Puppet::Parser::Functions
 		replica = args[0].to_i	# convert from string if needed
 		bricks = args[1]
 
-		# TODO: these functions could be in separate puppet files
-		# eg: Puppet::Parser::Functions.function('myfunc')
-		# function_myfunc(...)
-		def brick_str_to_hash(bricks)
-			# this loop converts brick strings to brick dict's...
-			result = []
-			bricks.each do |x|
-				a = x.split(':')
-				#assert a.length == 2	# TODO
-				p = a[1]
-				p = ((p[-1, 1] == '/') ? p : (p+'/'))	# endswith
-
-				result.push({'host'=> a[0], 'path'=> p})
-			end
-			return result
-		end
-
 		def get_hostlist(bricks)
 			hosts = []
 			bricks.each do |x|
