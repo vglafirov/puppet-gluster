@@ -39,3 +39,4 @@ module Puppet::Parser::Functions
     end
     return result
   end
+end
